@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import Header from "./Header";
 import Button from "./Button";
-import Refresh from "./Refresh";
+
 
 
 function App() {
@@ -64,6 +64,8 @@ function App() {
       <div>
 
         <h1>Poehali!</h1>
+
+          <h2>Hello</h2>
 
 
            <div >
