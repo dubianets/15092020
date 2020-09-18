@@ -7,7 +7,7 @@ export default function Refresh(props){
     return(
 
         <div>
-            <button onClick={props.refr}>RefreshAll</button>
+            <button onClick={props.refreshAll}>RefreshAll</button>
         </div>
 
     )

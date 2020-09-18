@@ -1,6 +1,9 @@
 import React,{useState} from 'react';
 import Header from "./Header";
 import Button from "./Button";
+import Refresh from "./Refresh";
+import AddCounter from "./AddCounter";
+import Controller from "./Controller";
 
 
 
@@ -51,10 +54,17 @@ function App() {
       setCounter(counter.map(el => el = 0));
     }
 
-    const addCounter = () => {
-     const arr2 = counter;
-     arr2.push(0);
-      console.log(arr2);
+    const removeCounter = (index) => {
+      const arrRemove = counter.filter((el, i) => {
+          return i !== index ? true : false
+
+      })
+        setCounter(arrRemove);
+    }
+
+    const addCounter = (a) => {
+     const arr2 = [...counter];
+     arr2.push(a);
      setCounter(arr2);
     }
 
@@ -78,13 +88,18 @@ function App() {
 
         <div>
 
-          {counter.map((el, index) => <Button  refreshAll={refreshAll} refresh={refresh} counterMinus={counterMinus} index={index} counterPlus={counterPlus} el={el} key={Math.random()}/>)}
+            <Refresh refreshAll={refreshAll}/>
+            <hr/>
+            <Controller/>
+            <hr/>
+
+          {counter.map((el, index) => <Button removeCounter={removeCounter} refresh={refresh} counterMinus={counterMinus} index={index} counterPlus={counterPlus} el={el} key={Math.random()}/>)}
 
         </div>
 
           <div>
 
-              <button onClick={addCounter}>Add Counter</button>
+              <AddCounter addCounter={addCounter}/>
 
           </div>
 

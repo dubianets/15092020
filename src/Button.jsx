@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import Refresh from "./Refresh";
+
+
 
 
 export default function Button(props){
@@ -19,23 +20,25 @@ export default function Button(props){
         props.refresh(props.index);
     }
 
+    let removeC = () => {
+        props.removeCounter(props.index);
+    }
+
     return(
 
         <div>
 
-        <div>
 
-            <Refresh refr={props.refreshAll}/>
-
-        </div>
         <div>
 
         <button onClick={ButtonMinus}>-</button>
              {count}
         <button onClick={ButtonPlus}>+</button>
             <button onClick={refreshCounter}>Refresh</button>
+            <button onClick={removeC}>remove</button>
 
         </div>
+
 
         </div>
     )
